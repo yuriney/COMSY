@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Availability__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL( Status__c, &apos;Livre&apos;),
+     IMAGE(&quot;https://everymind-e7-dev-ed.develop.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068aj000002qsHh&amp;operationContext=CHATTER&amp;contentId=05Taj0000031Pqf&quot;, &quot;error&quot;, 20, 20 ) ,
+     IF(ISPICKVAL( Status__c, &apos;Encaminhado Cozinha&apos;),
+								IMAGE(&quot;https://everymind-e7-dev-ed.develop.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068aj000002qsET&amp;operationContext=CHATTER&amp;contentId=05Taj0000031PkD&quot;, &quot;error&quot;, 20, 20 ),
+								 IF(ISPICKVAL( Status__c, &apos;Pedido Realizado&apos;),
+												IMAGE(&quot;https://everymind-e7-dev-ed.develop.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068aj000002qsJJ&amp;operationContext=CHATTER&amp;contentId=05Taj0000031Ptt&quot;, &quot;error&quot;, 20, 20 ),
+												 IF(ISPICKVAL( Status__c, &apos;Pedido Entregue&apos;), 
+																IMAGE(&quot;https://everymind-e7-dev-ed.develop.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068aj000002qsG5&amp;operationContext=CHATTER&amp;contentId=05Taj0000031PnR&quot;, &quot;error&quot;, 20, 20 ), 
+														  IF(ISPICKVAL( Status__c, &apos;Aguardando Limpeza&apos;),
+																			IMAGE(&quot;https://everymind-e7-dev-ed.develop.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068aj000002uquw&amp;operationContext=CHATTER&amp;contentId=05Taj0000035XCE&quot;, &quot;error&quot;, 20, 20 ),
+																			&quot;&quot;
+																)
+													) 
+									) 
+					)   
+)</formula>
+    <label>Disponibilidade</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

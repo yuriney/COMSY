@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <assignments>
+        <name>UpdateStatusOrderDelivered</name>
+        <label>Update Status to Order Delivered</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>recordId.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Pedido Entregue</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateTableStatus</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>Pedido Entregue {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Pedido Entregue</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordUpdates>
+        <name>UpdateTableStatus</name>
+        <label>Update Table Status</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <inputReference>recordId</inputReference>
+    </recordUpdates>
+    <screens>
+        <name>OrderDelivered</name>
+        <label>Pedido Entregue</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>UpdateStatusOrderDelivered</targetReference>
+        </connector>
+        <fields>
+            <name>OrderDeliveredMessage</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;font-size: 24px;&quot;&gt;Deseja realmente atualizar o Status da Mesa?&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Confirmar</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>OrderDelivered</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Table__c</objectType>
+    </variables>
+</Flow>
